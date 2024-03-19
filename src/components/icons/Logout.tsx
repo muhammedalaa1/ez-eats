@@ -1,5 +1,4 @@
 import type { SVGProps } from "react";
-
 export function Logout(props: SVGProps<SVGSVGElement>) {
     return (
         <svg
