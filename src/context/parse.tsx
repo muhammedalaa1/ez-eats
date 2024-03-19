@@ -7,12 +7,14 @@ export const Context = createContext<any>(undefined);
 export const useParse = () => useContext(Context);
 
 export const ParseProvider = ({ children }: { children: React.ReactNode }) => {
+    Parse.serverURL = import.meta.env.VITE_APP_SERVER_URL;
+
+    Parse.liveQueryServerURL = import.meta.env.VITE_APP_LIVE_URL;
+
     Parse.initialize(
         import.meta.env.VITE_APP_PARSE_APP_ID,
         import.meta.env.VITE_APP_JS_KEY
     );
-    Parse.serverURL = import.meta.env.VITE_APP_SERVER_URL;
-    Parse.liveQueryServerURL = import.meta.env.VITE_APP_LIVE_URL;
 
     return <Context.Provider value={Parse}>{children}</Context.Provider>;
 };
